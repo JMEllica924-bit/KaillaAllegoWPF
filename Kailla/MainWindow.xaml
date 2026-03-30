@@ -1,0 +1,111 @@
+﻿<Window x:Class="Kailla.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="THE REGISTRY CUARINTA"
+        Height="500" Width="900"
+        Background="#F7F7F7">
+
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- LEFT: TABLE -->
+        <StackPanel Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+
+            <TextBlock Text="THE REGISTRY CUARINTA"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10"/>
+
+            <Separator Margin="0,0,0,10"/>
+
+            <DataGrid x:Name="dataGrid"
+                      Height="320"
+                      AutoGenerateColumns="False"
+                      SelectionChanged="dataGrid_SelectionChanged"
+                      FontSize="13"
+                      RowBackground="White"
+                      AlternatingRowBackground="#EFEFEF">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Fullname" Binding="{Binding Fullname}" Width="*" />
+                    <DataGridTextColumn Header="Age" Binding="{Binding Age}" Width="*" />
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="*" />
+                    <DataGridTextColumn Header="Purok" Binding="{Binding Purok}" Width="*" />
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnDeleteData"
+                    Content="DELETE DATA"
+                    Height="57"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    IsEnabled="False"
+                    Click="btnDeleteData_Click"
+                    Foreground="Blue" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"/>
+        </StackPanel>
+
+        <!-- RIGHT: FORM -->
+        <Border Grid.Column="1"
+                Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"
+                Padding="15"
+                CornerRadius="10"
+                Margin="15,0,0,0" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+
+            <StackPanel>
+
+                <TextBlock Text="Cuarinta Details"
+                           FontSize="16"
+                           FontWeight="SemiBold"
+                           Margin="0,0,0,15"
+                           HorizontalAlignment="Center"/>
+
+                <!-- Fullname -->
+                <TextBlock Text="Fullname" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtFullname"
+                         Margin="0,5,0,10"
+                         Padding="5"/>
+
+                <!-- Fullname -->
+                <TextBlock Text="Age" FontWeight="SemiBold"/>
+                <TextBox x:Name="txtAge"
+           Margin="0,5,0,10"
+           Padding="5"/>
+
+                <!-- Gender -->
+                <TextBlock Text="Gender" FontWeight="SemiBold"/>
+                <ComboBox x:Name="comboGender"
+                          Margin="0,5,0,10">
+                    <ComboBoxItem Content="Male"/>
+                    <ComboBoxItem Content="Female"/>
+                </ComboBox>
+
+                <!-- Purok -->
+                <TextBlock Text="Purok" FontWeight="SemiBold"/>
+
+                <UniformGrid Columns="5" Margin="0,5,0,15">
+                    <RadioButton x:Name="rbOne" Content="1" GroupName="Purok" Background="#FF081096"/>
+                    <RadioButton x:Name="rbTwo" Content="2" GroupName="Purok" Background="#FF0F2F92"/>
+                    <RadioButton x:Name="rbThree" Content="3" GroupName="Purok" Background="#FF0C0FA5"/>
+                    <RadioButton x:Name="rbFour" Content="4" GroupName="Purok" Background="#FF0E109E"/>
+                    <RadioButton x:Name="rbFive" Content="5" GroupName="Purok" Background="#FF0E109E"/>
+                </UniformGrid>
+                <Button x:Name="btnSave"
+                        Content="SAVE"
+                        Height="74"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Click="btnSave_Click"
+                        Background="#FF79C3FF"
+                        Foreground="White" BorderBrush="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}}"/>
+
+                <!-- Save Button -->
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>
